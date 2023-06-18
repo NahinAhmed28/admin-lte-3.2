@@ -37,7 +37,7 @@
           <i class="fas fa-search"></i>
         </a>
         <div class="navbar-search-block">
-          <form class="form-inline">
+          <form class="form-inline" >
             <div class="input-group input-group-sm">
               <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
               <div class="input-group-append">
@@ -849,16 +849,20 @@
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
-        <form>
+        <!--form start-->
+        <form name="applicationForm" id="add-blog-post-form" method="post" action="" enctype="multipart/form-data">
+<!--          @csrf-->
+<!--          @method('POST')-->
+
           <div class="row">
             <!--first column-->
             <div class="col-md-6">
-            <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">Personal Information</h3>
-              </div>
-              <!-- /.card-header -->
-              <!-- form start -->
+              <div class="card card-primary">
+                <div class="card-header">
+                  <h3 class="card-title">Personal Information</h3>
+                </div>
+                <!-- /.card-header -->
+                <!-- form start -->
 
                 <div class="card-body">
                   <div class="form-group">
@@ -895,16 +899,16 @@
 
                 </div>
                 <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
             </div>
-            <!-- /.card -->
-          </div>
             <!--second column-->
             <div class="col-md-6">
-            <div class="card card-info">
-              <div class="card-header">
-                <h3 class="card-title">Additional Information</h3>
-              </div>
-              <!-- /.card-header -->
+              <div class="card card-info">
+                <div class="card-header">
+                  <h3 class="card-title">Additional Information</h3>
+                </div>
+                <!-- /.card-header -->
                 <div class="card-body">
                   <div class="form-group">
                     <label>Service</label>
@@ -941,38 +945,41 @@
                     </div>
                   </div>
                   <div class="form-group">
-                    <label for="signature">Attachments</label>
-                    <button type="button" class="btn rounded btn-block btn-success btn-flat" id="addMoreBtn">Add New Attachments</button>
+                    <label for="attachmentRow">Attachments:</label>
                     <div class="row" id="attachmentRow">
                       <div class="col-md-6">
                         <div class="form-group">
-                          <label for="attachmentTitle">Attachment Title</label>
-                          <input type="text" class="form-control attachment-title" placeholder="Enter Title" id="attachmentTitle">
+                          <label for="attachmentTitle1">Attachment Title</label>
+                          <input type="text" class="form-control attachment-title" placeholder="Enter Title" id="attachmentTitle1">
                         </div>
                       </div>
                       <div class="col-md-6 pt-4 mt-2">
                         <div class="input-group">
                           <div class="custom-file">
-                            <input type="file" class="custom-file-input attachments">
-                            <label class="custom-file-label" for="signature">Choose file</label>
+                            <input type="file" class="custom-file-input attachments" id="attachment1">
+                            <label class="custom-file-label" for="attachment1">Choose file</label>
                           </div>
                         </div>
                       </div>
                     </div>
+                    <button type="button" class="btn rounded btn-block btn-success btn-flat" id="addMoreBtn">Add New Attachments</button>
+
                   </div>
                 </div>
                 <!-- /.card-body -->
 
-                <div class="card-footer text-right">
-                  <button type="submit" class="btn btn-primary ">Submit</button>
-                </div>
-
+              </div>
+              <!-- /.card -->
             </div>
-            <!-- /.card -->
-          </div>
+
+            <div class="card-footer text-right">
+              <button type="submit" class="btn btn-primary ">Submit</button>
+            </div>
           </div>
         </form>
         <!-- /.row -->
+
+        <!-- /form-->
       </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
@@ -1012,14 +1019,24 @@
 <!--jquerry code to add row dynamically-->
 <script>
   $(document).ready(function() {
+    var attachmentCount = 1; // Initialize the attachment count
+
     $("#addMoreBtn").click(function() {
+      attachmentCount++; // Increment the attachment count
+
       var newRow = $("#attachmentRow").clone(); // Clone the row
+      newRow.find('.attachment-title').attr('id', 'attachmentTitle' + attachmentCount); // Set the new ID for attachment title
+      newRow.find('.attachments').attr('id', 'attachment' + attachmentCount); // Set the new ID for attachments
+      newRow.find('.attachment-title').attr('name', 'attachmentTitle' + attachmentCount); // Set the new name for attachment title
+      newRow.find('.attachments').attr('name', 'attachment' + attachmentCount); // Set the new name for attachments
       newRow.find('.attachment-title').val(''); // Clear the input value
       newRow.find('.attachments').val(''); // Clear the file input value
-      $("#attachmentRow").after(newRow); // Insert the cloned row after the existing row
+      $("#attachmentRow").parent().append(newRow); // Insert the cloned row at the end of the parent container
     });
   });
-
 </script>
+
+
+
 </body>
 </html>
