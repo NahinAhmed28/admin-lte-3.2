@@ -976,7 +976,7 @@
           <!-- right col -->
         </div>
         <!-- /.row (main row) -->
-
+         <!-- table one -->
         <div class="card">
           <div class="card-header">
             <h3 class="card-title">Service Wise Cost</h3>
@@ -1056,6 +1056,146 @@
           </div>
           <!-- /.card-body -->
         </div>
+        <!--end table one-->
+
+
+        <!-- table two -->
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Embassy Wise Cost</h3>
+          </div>
+          <!-- /.card-header -->
+          <div class="card-body">
+            <table id="example2" class="table table-bordered table-striped">
+              <thead>
+              <tr>
+                <th>Embassy Name</th>
+                <th>Total Application</th>
+                <th>Service Charge</th>
+                <th>Gov Charge</th>
+                <th>Total</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td>Thailand</td>
+                <td>112</td>
+                <td>120</td>
+                <td> 4</td>
+                <td>2990</td>
+              </tr>
+              <tr>
+                <td>Malaysia</td>
+                <td>2219</td>
+                <td>120</td>
+                <td>5</td>
+                <td>1000</td>
+              </tr>
+              <tr>
+                <td>Indonasia</td>
+                <td>28115</td>
+                <td>120</td>
+                <td>5.5</td>
+                <td>28882</td>
+              </tr>
+              <tr>
+                <td>USA</td>
+                <td>28116</td>
+                <td>200</td>
+                <td>6</td>
+                <td>28882</td>
+              </tr>
+              <tr>
+                <td>United Kingdom</td>
+                <td>1887</td>
+                <td>200 </td>
+                <td>7</td>
+                <td>28882</td>
+              </tr>
+              </tbody>
+              <tfoot>
+              <tr>
+                <th colspan="2" class="text-right">Grand Total</th>
+                <th>29991</th>
+                <th>5433</th>
+                <th>49991</th>
+              </tr>
+              </tfoot>
+            </table>
+          </div>
+          <!-- /.card-body -->
+        </div>
+        <!--end table two-->
+       
+         <!-- table three -->
+         <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">ESC Wise Cost</h3>
+          </div>
+          <!-- /.card-header -->
+          <div class="card-body">
+            <table id="example3" class="table table-bordered table-striped">
+              <thead>
+              <tr>
+                <th>ESC Name</th>
+                <th>Total Application</th>
+                <th>Service Charge</th>
+                <th>Gov Charge</th>
+                <th>Total</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td>RIYADH BATHA BRANCH</td>
+                <td>112</td>
+                <td>120</td>
+                <td> 4</td>
+                <td>2990</td>
+              </tr>
+              <tr>
+                <td>BURAIDHA BRANCH</td>
+                <td>2219</td>
+                <td>120</td>
+                <td>5</td>
+                <td>1000</td>
+              </tr>
+              <tr>
+                <td>JUBAIL BRANCH</td>
+                <td>28115</td>
+                <td>120</td>
+                <td>5.5</td>
+                <td>28882</td>
+              </tr>
+              <tr>
+                <td>UMM AL HAMAM BRANCH </td>
+                <td>28116</td>
+                <td>200</td>
+                <td>6</td>
+                <td>28882</td>
+              </tr>
+              <tr>
+                <td>RIYADH NEW SANAIYA BRANCH </td>
+                <td>1887</td>
+                <td>200 </td>
+                <td>7</td>
+                <td>28882</td>
+              </tr>
+              </tbody>
+              <tfoot>
+              <tr>
+                <th colspan="2" class="text-right">Grand Total</th>
+                <th>29991</th>
+                <th>5433</th>
+                <th>49991</th>
+              </tr>
+              </tfoot>
+            </table>
+          </div>
+          <!-- /.card-body -->
+        </div>
+        <!--end table three-->
+       
+       
         <!-- /.card -->
       </div><!-- /.container-fluid -->
 
@@ -1112,17 +1252,18 @@
       "responsive": true, "lengthChange": false, "autoWidth": false,
       "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-    $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false,
-      "responsive": true,
-    });
+    $("#example2").DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#example2_wrapper .col-md-6:eq(0)');
+    $("#example3").DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#example3_wrapper .col-md-6:eq(0)');
   });
 </script>
+
+
 <!--chartjs-->
 <script>
   $(function () {
